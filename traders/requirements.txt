@@ -10,3 +10,9 @@ pymongo==3.12.3
 pytz==2023.3.post1
 sqlparse==0.2.4
 tenacity==8.2.3
+django-crispy-forms
+crispy-bootstrap4
+djangorestframework
+djangorestframework-simplejwt
+Pillow
+PyJWT
