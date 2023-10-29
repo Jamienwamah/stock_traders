@@ -12,7 +12,7 @@ class CustomUser(AbstractUser):
     age = models.PositiveIntegerField(null=True, blank=True)
     profile_picture = models.ImageField(upload_to='profile_pictures/', null=True, blank=True)
 
-    # Add other custom fields as needed
+
 
     def __str__(self):
         return self.username
