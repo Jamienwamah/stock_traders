@@ -5,7 +5,7 @@ from django.shortcuts import render, redirect
 from .forms import TraderForm, TrackerForm, UserForm #CustomUserCreationForm
 from .models import Trader, Tracker, CustomUser, MyUserModel
 import plotly.graph_objs as go
-from django.contrib.auth import login, authenticate  # add this
+from django.contrib.auth import login, authenticate 
 from django.contrib.auth.forms import AuthenticationForm
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
@@ -85,7 +85,7 @@ def register_request(request):
     if request.method == "POST":
         form = UserForm(request.POST)
         if form.is_valid():
-            user = form.save()  # This will use your custom save method
+            user = form.save()  # This will use my custom save method
             login(request, user)
             messages.success(request, "Registration successful.")
             return redirect("dashboard")
@@ -121,9 +121,9 @@ def login_request(request):
 def my_view(request):
     try:
         with transaction.atomic():
-            # Create a new user (example)
+           
             user = User.objects.create_user(username='newuser', password='password', email='email')
-            # Add other code that might raise IntegrityError
+           
     except IntegrityError as e:
         error_message = "A user with this username already exists. Please choose a different username."
         transaction.set_rollback(True)  # Roll back the transaction
